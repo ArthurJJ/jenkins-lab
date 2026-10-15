@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    
  
 
     tools {
@@ -34,8 +34,10 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Build en cours...'
-                sh 'mvn clean compile'
+                dir('demo-app'){
+                    echo 'Build en cours...'
+                    sh 'mvn clean compile'
+                }
             }
         }
 
@@ -43,8 +45,10 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Execution des tests unitaires...'
-                sh 'mvn test'
+                dir('demo-app'){
+                    echo 'Execution des tests unitaires...'
+                    sh 'mvn test'
+                }
             }
         }
     }
