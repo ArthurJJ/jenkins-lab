@@ -26,7 +26,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Exécution des tests simulés...'
+                echo 'Exécution des tests simulés sur trigger...'
                 sh 'test -f build/resultat.txt && echo "Test OK"'
             }
         }
